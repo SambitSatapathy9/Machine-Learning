@@ -48,11 +48,25 @@ def cost_logistic(X,y,w,b):
     return cost
 
 w_tmp = np.array([1,1]) #w1,w2,w3
-b_tmp = -4
+b_tmp = -3 
+b_tmp_2 = -4
 print(cost_logistic(X_train,y_train,w_tmp,b_tmp))
 
 #Decision Boundary
+x0 = np.arange(6)
+x1 = 3-x0
+x1_other = 4-x0
 
+fig,ax = plt.subplots(1,1,figsize = (4,4))
+ax.plot(x0,x1,c='r',label ="b=-3")
+ax.plot(x0,x1_other,c='g',label="b=-4")
+ax.axis([0,4,0,3.5])
+
+plot_data(X_train,y_train,ax)
+plt.legend(loc = 'upper right')
+ax.set_ylabel('$x_1$', fontsize=12)
+ax.set_xlabel('$x_0$', fontsize=12)
+plt.title("Decision Boundary")
 
 
 
