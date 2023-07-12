@@ -96,3 +96,39 @@ iters = 10000
 w_out,b_out,_ = grad_desc_logistic(X_train,y_train,w_tmp,b_tmp,alpha,iters)
 print(f"\nUpdated paramaters  w: {w_out}, b:{b_out}")
 
+## Plotting the results of gradient descent (Decision Boundary)
+fig,ax = plt.subplots(1,1,figsize = (5,4))
+
+def plt_prob(ax, w_out,b_out):
+    """ plots a decision boundary but include shading to indicate the probability """
+    #setup useful ranges and common linspaces
+    x0_space  = np.linspace(0, 4 , 100)
+    x1_space  = np.linspace(0, 4 , 100)
+
+    # get probability for x0,x1 ranges
+    tmp_x0,tmp_x1 = np.meshgrid(x0_space,x1_space)
+    z = np.zeros_like(tmp_x0)
+    for i in range(tmp_x0.shape[0]):
+        for j in range(tmp_x1.shape[1]):
+            z[i,j] = sigmoid(np.dot(w_out, np.array([tmp_x0[i,j],tmp_x1[i,j]])) + b_out)
+
+
+    cmap = plt.get_cmap('b')
+    new_cmap = truncate_colormap(cmap, 0.0, 0.5)
+    pcm = ax.pcolormesh(tmp_x0, tmp_x1, z,
+                   norm=cm.colors.Normalize(vmin=0, vmax=1),
+                   cmap=new_cmap, shading='nearest', alpha = 0.9)
+    ax.figure.colorbar(pcm, ax=ax)
+
+# Plot the original data
+ax.set_ylabel(r'$x_1$')
+ax.set_xlabel(r'$x_0$')   
+ax.axis([0, 4, 0, 3.5])
+plot_data(X_train,y_train,ax)
+
+# Plot the decision boundary
+x0 = -b_out/w_out[0]
+x1 = -b_out/w_out[1]
+ax.plot([0,x0],[x1,0], c="b", lw=1)
+plt.show()
+
