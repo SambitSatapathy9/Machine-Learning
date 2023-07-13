@@ -12,15 +12,6 @@ Feel free to explore the repository, experiment with the code, and use it as a r
 
 Happy-Learning!
 
-## Structure
-The repository is organized into folders, each representing a specific machine learning problem. 
-
-Within each problem folder, you will find the following files:
-
-  1. **problem_statement**: This file provides a detailed description of the problem, including the task, the dataset, and the evaluation metrics.
-  2. **dataset**: The dataset file containing the necessary features and labels for the problem.
-  3. **solution**: A Jupyter Notebook file that contains my solution to the problem, including data preprocessing, model building, training, and     evaluation. The code is well-documented with explanations and insights gained from the analysis.
-
 ## Getting Started
 To get started, clone this repository to your local machine using the following command:
 
