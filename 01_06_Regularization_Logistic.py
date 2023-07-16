@@ -65,4 +65,5 @@ b_tmp = 0.5
 lambda_tmp = 0.7
 dj_db_tmp, dj_dw_tmp = gradient_logistic_reg(X_tmp,y_tmp,w_tmp,b_tmp,lambda_tmp)
 
+#Print the regularised gradient descent for logistic regression
 print(f"dj_db:{dj_db_tmp}\nRegularised dj_dw: {dj_dw_tmp}")
