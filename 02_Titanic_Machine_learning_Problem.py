@@ -1,4 +1,4 @@
-# Titanic - Machine Learning from Disaster
+e# Titanic - Machine Learning from Disaster
 ### NOTE: You need to have the datasets and the main script in your machine in order to run the program
 # Steps 
 """
@@ -102,6 +102,7 @@ from sklearn.ensemble import RandomForestClassifier,ExtraTreesClassifier
 X_train = pd.get_dummies(train[features])  #- pd.get_dummies() function from Pandas to perform one-hot encoding on the selected features of the 'train' and 'test' DataFrames. 
 X_test  = pd.get_dummies(test[features])   #The process is essential for converting categorical features into numerical representations that machine learning models can understand.
 
+#Declare the models
 model_lgr  = LogisticRegression(max_iter = 1000)
 model_etc  = ExtraTreesClassifier()
 model_hgb  = HistGradientBoostingClassifier()
