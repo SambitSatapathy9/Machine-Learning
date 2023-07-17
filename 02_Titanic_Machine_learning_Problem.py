@@ -1,4 +1,5 @@
 # Titanic - Machine Learning from Disaster
+### NOTE: You need to have the datasets and the main script in your machine in order to run the program
 # Steps 
 """
 1. import packages
@@ -62,7 +63,32 @@ pd.pivot_table(train, index = 'Survived', columns = 'Embarked', values = 'Ticket
 
 ##4 Feature Engineering
 #We can see that the cabin and ticket data is too much clumsy to analyze. Thus we apply feature engineering to these columns.
-### 4.1 Cabin- We will separate cabin based on the multiple cabins booked and also by the length of the cabin name.
+### 4.1 Cabin- We will separate cabin based on the names, we assign 0 to NaN and 1 to the cabins with names.
+train['cabin_multiple'] = train.Cabin.apply(lambda x : 0 if pd.isna(x) else 1)
+print(train.cabin_multiple.value_counts())
+pd.pivot_table(train, index = "Survived", columns = "cabin_multiple", values = "Ticket", aggfunc = "count")
+
+##Manipulating the test data 
+tesr['cabin_multiple'] = test.Cabin.apply(lambda x : 0 if pd.isna(x) else 1)
+test.head()
+
+##Filling in the naN values of age with the median value in the train and test datasets
+train['Age'] = train.Age.fillna(train.Age.median())
+test['Age']  = test.Age.fillna(test.Age.median())
+
+##Check if any other columns have NaN values , then write the following code to check how many null values are present
+# print(sum(train["Embarked"].isnull()))
+# print(sum(test["Embarked"].isnull()))
+
+##5 FEATURE SELECTION
+"""
+- We will drop the Name,Ticket and PassengerID columns from the train data as they are less important
+
+- Further we drop the survived column so as to separate the features and the target column
+
+- The features which we want to analyse are the following: 
+    1. "Sex","Pclass","Age","SibSp","Parch","Embarked","cabin_multiple"
+"""
 
 
 
