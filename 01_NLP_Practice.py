@@ -1,10 +1,9 @@
-#WORD EMBEDDING LAYER
+#WORD EMBEDDING LAYER 
 """
 1. Sentences
 2. One hot Encoding
 3. Padding --> Post and Pre-Padding --> OHE
 4. OHE --> Vectors
-
 
 Vocalbulary -  unique words
 """
