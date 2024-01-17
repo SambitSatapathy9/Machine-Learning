@@ -38,10 +38,10 @@ A Term Frequency-Inverse Document Frequency (TF-IDF) model is created using Tfid
 
 ### Machine Learning Models
 #### Naive Bayes Classifier
-The tutorial demonstrates the usage of the Multinomial Naive Bayes classifier for spam detection. The model is trained and evaluated using accuracy score and classification report metrics.
+The tutorial demonstrates the usage of the Multinomial Naive Bayes classifier for spam detection. The model is trained and evaluated using accuracy score and classification report metrics comprising of precision, recall, f1 score, etc.
 
 #### Random Forest Classifier
-Additionally, the Random Forest Classifier from sklearn.ensemble is utilized to perform spam detection, and its performance is evaluated using accuracy score and classification report metrics.
+Additionally, the Random Forest Classifier from sklearn.ensemble is utilized to perform spam detection, and its performance is evaluated using accuracy score and classification report metrics comprising of precision, recall, f1 score, etc.
 
 ### Code Execution
 The code provided in this repository can be executed sequentially to understand and implement the various NLP techniques covered in the tutorial.
